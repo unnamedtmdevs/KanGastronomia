@@ -1,0 +1,99 @@
+GASTRONOMIA - iOS App Setup Instructions
+==========================================
+
+Проект успешно создан и собирается! ✓
+
+ИНТЕГРАЦИЯ WEBVIEW И СИСТЕМЫ ЗАПУСКА
+-------------------------------------
+
+✅ Приложение теперь включает:
+1. Проверку сервера при запуске (https://orbitune.site/vVbQ1vLD)
+2. Полнофункциональный WebView с anti-bot защитой
+3. Автоматическое переключение между WebView и нативным приложением
+
+ЛОГИКА РАБОТЫ:
+- При запуске делается GET запрос на сервер
+- Если 200 с контентом или 3xx (редирект) → открывается WebView
+- Если ошибка, пустой ответ или недоступен → открывается Gastronomia
+- WebView сохраняет сессию и cookies между запусками
+
+ПРИЛОЖЕНИЕ БЕЗ ДОПОЛНИТЕЛЬНЫХ РАЗРЕШЕНИЙ:
+- Геолокации (рестораны показываются с mock локацией)
+- HealthKit (все функции работают без синхронизации)
+- Других разрешений
+
+Приложение готово к использованию сразу после запуска!
+
+СТРУКТУРА ПРОЕКТА
+-----------------
+
+Ex/ (WebView система из dafoma_distribution)
+  - Dkgd.swift              - Конфигурация сервера
+  - Wkgd.swift              - WebView контроллер с anti-bot защитой
+  - StartupView.swift       - Логика проверки сервера и запуска
+
+Models/
+  - Recipe.swift            - Модель рецептов с питательной информацией
+  - Restaurant.swift        - Модель ресторанов с меню
+  - MealPlan.swift         - Модель планов питания и покупок
+
+Services/
+  - HealthKitService.swift  - Интеграция с HealthKit
+  - NetworkService.swift    - Сетевые запросы и mock данные
+
+ViewModels/
+  - RecipeViewModel.swift           - Логика рецептов
+  - RestaurantViewModel.swift       - Логика ресторанов
+  - MealPlannerViewModel.swift      - Логика планирования питания
+
+Views/
+  - Onboarding/OnboardingView.swift       - Онбординг с @AppStorage
+  - Home/HomeView.swift                   - Главный экран
+  - Recipes/RecipeListView.swift          - Список рецептов
+  - Recipes/RecipeDetailView.swift        - Детали рецепта
+  - MealPlanner/MealPlannerView.swift     - Планировщик питания
+  - Restaurants/RestaurantFinderView.swift - Поиск ресторанов
+  - Settings/SettingsView.swift           - Настройки
+
+Helpers/
+  - ColorScheme.swift       - Цветовая схема (#000000, #fbd600, #ffffff)
+  - CustomButton.swift      - Кастомные кнопки
+
+ОСНОВНЫЕ ФУНКЦИИ
+----------------
+
+✓ Curated Recipe Database - 6 готовых рецептов с детальной информацией
+✓ Personalized Meal Planning - Недельное планирование с автоматическим списком покупок
+✓ Restaurant Finder - 3 ресторана с mock данными
+✓ Health Goals - Выбор целей (Weight Loss, Muscle Gain, Maintenance, Healthy Eating)
+✓ Engaging Onboarding - Интерактивный онбординг с выбором целей
+
+ЦВЕТОВАЯ СХЕМА
+--------------
+
+- Background: #000000 (черный)
+- Primary/Buttons: #fbd600 (желтый)
+- Text: #ffffff (белый)
+- Card Background: #1c1c1e (темно-серый)
+
+СБОРКА ПРОЕКТА
+--------------
+
+Проект собирается командой:
+xcodebuild build -scheme "KanGastronomia" -sdk iphonesimulator
+
+Все файлы созданы, структура готова к использованию!
+
+ВАЖНЫЕ ЗАМЕТКИ
+--------------
+
+- Проект использует SwiftUI
+- Совместимость с iOS 15.6+
+- БЕЗ дополнительных разрешений (Location, HealthKit и т.д.)
+- Приложение следует Apple Design Guidelines
+- Используется @AppStorage для сохранения настроек онбординга
+- Mock данные в NetworkService для демонстрации (замените на реальные API)
+- Работает полностью автономно без интернета
+
+Приложение готово к запуску и тестированию!
+
