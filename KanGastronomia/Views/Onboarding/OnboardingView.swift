@@ -84,7 +84,7 @@ struct WelcomePageView: View {
                     .font(.system(size: 24, weight: .regular))
                     .foregroundColor(.appText.opacity(0.8))
                 
-                Text("Gastronomia")
+                Text("KanGastronomia")
                     .font(.system(size: 42, weight: .bold))
                     .foregroundColor(.appPrimary)
             }
