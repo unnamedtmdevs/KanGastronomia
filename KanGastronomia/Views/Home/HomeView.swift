@@ -129,9 +129,15 @@ struct FeaturedRecipeCard: View {
                     .frame(width: 280, height: 180)
                     .cornerRadius(16)
                 
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.appText.opacity(0.3))
+                if let imageURL = recipe.imageURL {
+                    Image(systemName: imageURL)
+                        .font(.system(size: 60))
+                        .foregroundColor(.appPrimary)
+                } else {
+                    Image(systemName: "photo.fill")
+                        .font(.system(size: 40))
+                        .foregroundColor(.appText.opacity(0.3))
+                }
             }
             
             VStack(alignment: .leading, spacing: 6) {
@@ -173,9 +179,15 @@ struct QuickRecipeCard: View {
                     .frame(width: 160, height: 120)
                     .cornerRadius(12)
                 
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 30))
-                    .foregroundColor(.appText.opacity(0.3))
+                if let imageURL = recipe.imageURL {
+                    Image(systemName: imageURL)
+                        .font(.system(size: 40))
+                        .foregroundColor(.appPrimary)
+                } else {
+                    Image(systemName: "photo.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.appText.opacity(0.3))
+                }
             }
             
             VStack(alignment: .leading, spacing: 4) {
@@ -204,9 +216,15 @@ struct HealthyRecipeRow: View {
                     .frame(width: 80, height: 80)
                     .cornerRadius(12)
                 
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 24))
-                    .foregroundColor(.appText.opacity(0.3))
+                if let imageURL = recipe.imageURL {
+                    Image(systemName: imageURL)
+                        .font(.system(size: 32))
+                        .foregroundColor(.appPrimary)
+                } else {
+                    Image(systemName: "photo.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.appText.opacity(0.3))
+                }
             }
             
             VStack(alignment: .leading, spacing: 6) {

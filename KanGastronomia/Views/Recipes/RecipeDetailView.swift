@@ -26,9 +26,15 @@ struct RecipeDetailView: View {
                             .fill(Color.appCard)
                             .frame(height: 300)
                         
-                        Image(systemName: "photo.fill")
-                            .font(.system(size: 60))
-                            .foregroundColor(.appText.opacity(0.3))
+                        if let imageURL = recipe.imageURL {
+                            Image(systemName: imageURL)
+                                .font(.system(size: 100))
+                                .foregroundColor(.appPrimary)
+                        } else {
+                            Image(systemName: "photo.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(.appText.opacity(0.3))
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 16) {

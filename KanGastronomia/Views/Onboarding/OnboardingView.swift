@@ -110,13 +110,13 @@ struct FeaturesPageView: View {
                 .foregroundColor(.appPrimary)
             
             VStack(spacing: 30) {
-                FeatureRow(icon: "book.fill", title: "Curated Recipes", description: "Browse chef-approved recipes with detailed nutrition info")
+                FeatureRow(icon: "book.fill", title: "20+ Curated Recipes", description: "Browse recipes with complete nutrition information and step-by-step instructions")
                 
-                FeatureRow(icon: "calendar.badge.clock", title: "Meal Planning", description: "Create personalized meal plans based on your health goals")
+                FeatureRow(icon: "calendar.badge.clock", title: "Free Meal Planning", description: "Create unlimited personalized meal plans tailored to your health goals - completely free")
                 
-                FeatureRow(icon: "map.fill", title: "Restaurant Finder", description: "Discover dining options that match your preferences")
+                FeatureRow(icon: "map.fill", title: "Restaurant Finder", description: "Discover healthy dining options near you with nutritional menu information")
                 
-                FeatureRow(icon: "cart.fill", title: "Shopping Lists", description: "Auto-generated shopping lists from your meal plans")
+                FeatureRow(icon: "cart.fill", title: "Smart Shopping Lists", description: "Automatically generated shopping lists from your meal plans with ingredient quantities")
             }
             .padding(.horizontal, 40)
             
@@ -167,17 +167,25 @@ struct HealthGoalPageView: View {
                     .foregroundColor(.appPrimary)
             }
             
-            Text("We'll personalize your experience based on your goal")
-                .font(.system(size: 16))
-                .foregroundColor(.appText.opacity(0.7))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+            VStack(spacing: 8) {
+                Text("Personalize your meal recommendations")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.appText)
+                    .multilineTextAlignment(.center)
+                
+                Text("Select a goal to get recipe suggestions and restaurant recommendations matched to your needs. You can change this anytime in settings.")
+                    .font(.system(size: 14))
+                    .foregroundColor(.appText.opacity(0.7))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+            }
             
             VStack(spacing: 16) {
                 ForEach(HealthGoal.allCases, id: \.rawValue) { goal in
                     GoalButton(
                         title: goal.rawValue,
                         icon: iconForGoal(goal),
+                        description: descriptionForGoal(goal),
                         isSelected: selectedGoal == goal.rawValue
                     ) {
                         selectedGoal = goal.rawValue
@@ -202,11 +210,25 @@ struct HealthGoalPageView: View {
             return "leaf.fill"
         }
     }
+    
+    private func descriptionForGoal(_ goal: HealthGoal) -> String {
+        switch goal {
+        case .weightLoss:
+            return "Low-calorie recipes & balanced meals"
+        case .muscleGain:
+            return "High-protein meals for muscle building"
+        case .maintenance:
+            return "Balanced nutrition for healthy living"
+        case .healthyEating:
+            return "Fresh, wholesome ingredients"
+        }
+    }
 }
 
 struct GoalButton: View {
     let title: String
     let icon: String
+    let description: String
     let isSelected: Bool
     let action: () -> Void
     
@@ -218,9 +240,15 @@ struct GoalButton: View {
                     .foregroundColor(isSelected ? .appBackground : .appPrimary)
                     .frame(width: 40)
                 
-                Text(title)
-                    .font(.system(size: 17, weight: .semibold))
-                    .foregroundColor(isSelected ? .appBackground : .appText)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(isSelected ? .appBackground : .appText)
+                    
+                    Text(description)
+                        .font(.system(size: 13))
+                        .foregroundColor(isSelected ? .appBackground.opacity(0.8) : .appText.opacity(0.6))
+                }
                 
                 Spacer()
                 

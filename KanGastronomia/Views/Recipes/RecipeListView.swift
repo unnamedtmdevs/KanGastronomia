@@ -130,9 +130,15 @@ struct RecipeCard: View {
                     .frame(width: 100, height: 100)
                     .cornerRadius(12)
                 
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 30))
-                    .foregroundColor(.appText.opacity(0.3))
+                if let imageURL = recipe.imageURL {
+                    Image(systemName: imageURL)
+                        .font(.system(size: 40))
+                        .foregroundColor(.appPrimary)
+                } else {
+                    Image(systemName: "photo.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.appText.opacity(0.3))
+                }
             }
             
             VStack(alignment: .leading, spacing: 8) {

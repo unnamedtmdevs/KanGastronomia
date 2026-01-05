@@ -100,9 +100,15 @@ struct RestaurantCard: View {
                     .frame(height: 160)
                     .cornerRadius(16, corners: [.topLeft, .topRight])
                 
-                Image(systemName: "photo.fill")
-                    .font(.system(size: 40))
-                    .foregroundColor(.appText.opacity(0.3))
+                if let imageURL = restaurant.imageURL {
+                    Image(systemName: imageURL)
+                        .font(.system(size: 60))
+                        .foregroundColor(.appPrimary)
+                } else {
+                    Image(systemName: "photo.fill")
+                        .font(.system(size: 40))
+                        .foregroundColor(.appText.opacity(0.3))
+                }
             }
             
             VStack(alignment: .leading, spacing: 8) {
@@ -133,14 +139,12 @@ struct RestaurantCard: View {
                         .font(.system(size: 13))
                         .foregroundColor(.appText.opacity(0.7))
                     
-                    if let distance = viewModel.distance(to: restaurant) {
-                        Text("•")
-                            .foregroundColor(.appText.opacity(0.5))
-                        
-                        Text(String(format: "%.1f km", distance))
-                            .font(.system(size: 13))
-                            .foregroundColor(.appText.opacity(0.7))
-                    }
+                    Text("•")
+                        .foregroundColor(.appText.opacity(0.5))
+                    
+                    Text(restaurant.address.components(separatedBy: ",").last?.trimmingCharacters(in: .whitespaces) ?? "Nearby")
+                        .font(.system(size: 13))
+                        .foregroundColor(.appText.opacity(0.7))
                 }
                 
                 Text(restaurant.address)
@@ -173,9 +177,15 @@ struct RestaurantDetailView: View {
                             .fill(Color.appCard)
                             .frame(height: 250)
                         
-                        Image(systemName: "photo.fill")
-                            .font(.system(size: 60))
-                            .foregroundColor(.appText.opacity(0.3))
+                        if let imageURL = restaurant.imageURL {
+                            Image(systemName: imageURL)
+                                .font(.system(size: 100))
+                                .foregroundColor(.appPrimary)
+                        } else {
+                            Image(systemName: "photo.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(.appText.opacity(0.3))
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 16) {
@@ -232,18 +242,6 @@ struct RestaurantDetailView: View {
                                 Text(restaurant.address)
                                     .font(.system(size: 15))
                                     .foregroundColor(.appText)
-                            }
-                            
-                            if let distance = viewModel.distance(to: restaurant) {
-                                HStack {
-                                    Image(systemName: "arrow.right.circle.fill")
-                                        .foregroundColor(.appPrimary)
-                                        .frame(width: 24)
-                                    
-                                    Text(String(format: "%.1f km away", distance))
-                                        .font(.system(size: 15))
-                                        .foregroundColor(.appText)
-                                }
                             }
                         }
                         

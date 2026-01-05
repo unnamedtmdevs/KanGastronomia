@@ -110,9 +110,11 @@ class RestaurantViewModel: ObservableObject {
         }
     }
     
-    func distance(to restaurant: Restaurant) -> Double? {
-        // Mock distance for demonstration
-        return Double.random(in: 0.5...5.0)
+    func distance(to restaurant: Restaurant, from userLocation: CLLocationCoordinate2D) -> Double {
+        let restaurantLocation = CLLocation(latitude: restaurant.latitude, longitude: restaurant.longitude)
+        let userCLLocation = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+        let distanceInMeters = userCLLocation.distance(from: restaurantLocation)
+        return distanceInMeters / 1609.34 // Convert to miles
     }
 }
 

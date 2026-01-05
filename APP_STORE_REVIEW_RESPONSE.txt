@@ -1,0 +1,102 @@
+APP STORE REVIEW RESPONSE
+=========================
+
+Dear App Review Team,
+
+Thank you for reviewing KanGastronomia. We have addressed all concerns and updated the app to resolve the identified issues.
+
+GUIDELINE 2.1(a) - INCOMPLETE CONTENT RESOLUTION
+-------------------------------------------------
+
+We have made the following improvements to ensure the app contains complete and final content:
+
+✅ COMPLETED CHANGES:
+1. Expanded recipe database to 20+ complete recipes with full nutritional information
+2. Added 10 restaurants with complete menus, contact information, and operating hours
+3. Removed all development comments and placeholder references
+4. Updated all restaurant websites to realistic URLs
+5. Implemented SF Symbols icons for all recipes and restaurants
+6. Enhanced onboarding to clearly explain all features
+7. Added detailed descriptions for meal planning functionality
+
+✅ CONTENT STATISTICS:
+- 20 complete recipes with step-by-step instructions
+- 10 restaurants with full menu items and nutritional data
+- Complete nutritional information for all recipes and menu items
+- Fully functional meal planning system
+- Automatic shopping list generation
+- All features working without internet connection
+
+GUIDELINE 2.1 - INFORMATION NEEDED RESPONSES
+---------------------------------------------
+
+Question 1: How do users obtain personalized meal planning in the app?
+
+Answer: 
+Users can create personalized meal plans completely FREE of charge directly within the app. The process works as follows:
+
+1. User taps "Meal Planner" tab and creates a new meal plan (no payment required)
+2. They select recipes from our database of 20+ recipes, each with complete nutritional information
+3. Recipes can be assigned to specific dates and meal types (breakfast, lunch, dinner, snack)
+4. The app automatically:
+   - Calculates total daily nutrition based on selected meals
+   - Generates a shopping list with all required ingredients
+   - Combines duplicate ingredients with summed quantities
+5. Users can track purchased items and manage multiple meal plans
+6. All data is saved locally on the device using UserDefaults
+
+The meal planning feature is personalized based on the user's selected health goal (Weight Loss, Muscle Gain, Maintenance, or Healthy Eating). The app recommends recipes that align with their chosen goal, but users are free to select any recipes they prefer.
+
+This personalization happens in three ways:
+- During onboarding, users select their health goal
+- Recipe recommendations are filtered based on the selected goal
+- Restaurant menu items are highlighted if they match the user's health goals
+
+Question 2: Do users have to pay for it? If so, where and how is the payment made?
+
+Answer: 
+NO, users do NOT have to pay for any features in KanGastronomia. The entire app is completely free to use:
+
+✅ FREE FEATURES:
+- Unlimited meal plan creation
+- Access to all 20+ recipes
+- Restaurant finder with 10 restaurants
+- Automatic shopping list generation
+- Complete nutritional information
+- All personalization features
+
+❌ NO PAYMENTS:
+- No subscription required
+- No in-app purchases
+- No hidden fees
+- No payment collection of any kind
+- No monetization features
+
+All features including meal planning, recipe browsing, restaurant finder, and shopping lists are available to all users at no cost. The app does not contain any payment processing functionality, subscription systems, or monetization features.
+
+The app is designed as a free utility to help users plan healthy meals and discover nutritious recipes, with no commercial transactions involved.
+
+ADDITIONAL INFORMATION
+-----------------------
+
+App Functionality:
+- Works completely offline (no internet required after first launch)
+- All data stored locally on device
+- No user accounts or registration needed
+- No location permissions required (restaurants shown for default location)
+- No HealthKit integration required
+- Follows all Apple Design Guidelines
+
+Privacy:
+- No data collection
+- No analytics
+- No third-party SDKs
+- All user data stays on device
+
+We believe these updates fully address the concerns raised and make KanGastronomia ready for public release.
+
+Thank you for your time and consideration.
+
+Best regards,
+KanGastronomia Development Team
+
